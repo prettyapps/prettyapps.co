@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pretty Apps — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --deep: #0d0814;
+      --void: #110c1a;
+      --plum: #1e1030;
+      --violet: #3d1f6e;
+      --iris: #6b3fa0;
+      --lavender: #9b6dcc;
+      --mist: #c9a8e8;
+      --pale: #ede0f7;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--deep);
+      color: var(--pale);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow: hidden;
+    }
+
+    /* Noise grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.4;
+    }
+
+    /* Deep radial glow */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, #3d1f6e33 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, #6b3fa018 0%, transparent 60%),
+        radial-gradient(ellipse 30% 30% at 80% 10%, #9b6dcc10 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift linear infinite;
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #3d1f6e50, transparent 70%);
+      top: -100px; left: -100px;
+      animation-duration: 25s;
+    }
+    .orb-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, #6b3fa035, transparent 70%);
+      bottom: -50px; right: -50px;
+      animation-duration: 30s;
+      animation-direction: reverse;
+    }
+    .orb-3 {
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, #9b6dcc25, transparent 70%);
+      top: 50%; left: 60%;
+      animation-duration: 20s;
+    }
+
+    @keyframes drift {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      33%  { transform: translate(30px, -20px) rotate(120deg); }
+      66%  { transform: translate(-20px, 30px) rotate(240deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    /* Main layout */
+    .container {
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Thin decorative line */
+    .line-top {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--iris));
+      margin-bottom: 3rem;
+      animation: fadeUp 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    /* Logo / brand */
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 2.5rem;
+      animation: fadeUp 1.2s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    /* Main heading */
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--pale);
+      margin-bottom: 0.3em;
+      animation: fadeUp 1.2s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--mist);
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      color: var(--lavender);
+      letter-spacing: 0.08em;
+      margin-bottom: 4rem;
+      animation: fadeUp 1.2s ease 0.6s forwards;
+      opacity: 0;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--iris), transparent);
+      margin: 0 auto 3rem;
+      animation: fadeUp 1.2s ease 0.7s forwards;
+      opacity: 0;
+    }
+
+    /* Coming soon badge */
+    .badge {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--iris);
+      border: 1px solid #3d1f6e80;
+      padding: 0.5em 1.4em;
+      border-radius: 2px;
+      margin-bottom: 3rem;
+      background: #1e103008;
+      animation: fadeUp 1.2s ease 0.8s forwards;
+      opacity: 0;
+    }
+
+    /* Email link */
+    .contact {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      animation: fadeUp 1.2s ease 1s forwards;
+      opacity: 0;
+    }
+
+    .contact a {
+      color: var(--mist);
+      text-decoration: none;
+      border-bottom: 1px solid #9b6dcc50;
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .contact a:hover {
+      color: var(--pale);
+      border-color: var(--lavender);
+    }
+
+    /* Bottom line */
+    .line-bottom {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--iris), transparent);
+      margin-top: 3rem;
+      animation: fadeUp 1.2s ease 1.1s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Subtle star field */
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background: var(--lavender);
+      border-radius: 50%;
+      animation: twinkle ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <div class="line-top"></div>
+    <div class="brand">Pretty Apps</div>
+    <h1>Something <em>beautiful</em><br>is coming.</h1>
+    <div class="subtitle">Thoughtfully crafted iOS apps</div>
+    <div class="divider"></div>
+    <div class="badge">Coming Soon</div>
+    <div class="contact">
+      Get in touch — <a href="mailto:misha@prettyapps.co">misha@prettyapps.co</a>
+    </div>
+    <div class="line-bottom"></div>
+  </div>
+
+  <script>
+    // Generate subtle star field
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDuration = (3 + Math.random() * 5) + 's';
+      star.style.animationDelay = (Math.random() * 6) + 's';
+      star.style.opacity = Math.random() * 0.4;
+      container.appendChild(star);
+    }
+  </script>
+</body>
+</html>
