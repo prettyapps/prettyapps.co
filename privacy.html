@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Pause Point by Pretty Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #faf9fc;
+      --plum: #7c3aed;
+      --text: #1a1025;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --gradient: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 50%, #dbeafe 100%);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(250,249,252,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 600; font-size: 0.95rem; color: var(--text);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 0.875rem; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--plum); }
+
+    .hero {
+      padding: 8rem 2rem 4rem;
+      background: var(--gradient);
+      opacity-mix: normal;
+    }
+    .hero-inner { max-width: 700px; margin: 0 auto; }
+    .label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--plum); margin-bottom: 1rem;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: var(--muted); font-size: 0.95rem;
+      line-height: 1.7; font-weight: 300;
+    }
+
+    .content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .summary-box {
+      background: white;
+      border: 1.5px solid #c4b5fd;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .summary-box h2 {
+      font-size: 0.875rem; font-weight: 600;
+      color: var(--plum); margin-bottom: 1rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .summary-box ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .summary-box li {
+      font-size: 0.95rem; display: flex; gap: 0.5rem; align-items: flex-start;
+      line-height: 1.5;
+    }
+    .summary-box li::before { content: '✓'; color: var(--plum); font-weight: 600; flex-shrink: 0; }
+
+    .section { margin-bottom: 2.5rem; }
+    .section h3 {
+      font-size: 1rem; font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section p, .section li {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.75;
+    }
+    .section ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+    .section li { margin-bottom: 0.3rem; }
+
+    .meta {
+      font-size: 0.8rem; color: var(--muted);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--plum); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Pretty Apps</a>
+  <a class="nav-back" href="/">← Back to home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="label">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p>Pause Point is designed with privacy as a foundation, not an afterthought. This policy explains what we collect, how we use it, and why the answer to both is: almost nothing.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="summary-box">
+    <h2>The short version</h2>
+    <ul>
+      <li>We do not collect any personal information</li>
+      <li>We do not use analytics or tracking tools</li>
+      <li>We do not sell or share your data with anyone</li>
+      <li>All data stays on your device</li>
+      <li>Apple Health data is written locally — we never read it back</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Who we are</h3>
+    <p>Pause Point is developed and published by Pretty Apps LLC, a limited liability company registered in Georgia (country). You can reach us at <a href="mailto:contact@prettyapps.co" style="color: var(--plum);">contact@prettyapps.co</a>.</p>
+  </div>
+
+  <div class="section">
+    <h3>What we collect</h3>
+    <p>Nothing. Pause Point does not collect, transmit, or store any personal information. The app operates entirely on your device.</p>
+  </div>
+
+  <div class="section">
+    <h3>Data stored on your device</h3>
+    <p>Pause Point stores the following data locally on your device only:</p>
+    <ul>
+      <li>Your timer preferences (duration, interval bell, warmup settings)</li>
+      <li>Your appearance preferences (theme, color mode)</li>
+      <li>Your session history (dates and durations of completed sessions)</li>
+    </ul>
+    <p style="margin-top: 0.75rem;">This data never leaves your device and is not accessible to us.</p>
+  </div>
+
+  <div class="section">
+    <h3>Apple Health integration</h3>
+    <p>If you choose to enable Apple Health integration, Pause Point will write completed meditation sessions to your Health app as Mindful Minutes. This data is stored by Apple under their privacy policy and is never transmitted to us. We do not read, access, or process any Health data.</p>
+  </div>
+
+  <div class="section">
+    <h3>Apple Watch</h3>
+    <p>The Pause Point Apple Watch companion app communicates with the iPhone app only to synchronize timer state. No data from this communication is collected or stored outside your devices.</p>
+  </div>
+
+  <div class="section">
+    <h3>Analytics and tracking</h3>
+    <p>We do not use any analytics services, crash reporting tools, advertising SDKs, or third-party tracking in Pause Point. There are no SDKs embedded in the app beyond Apple's own frameworks.</p>
+  </div>
+
+  <div class="section">
+    <h3>Children's privacy</h3>
+    <p>Pause Point does not collect information from anyone, including children. The app is appropriate for all ages.</p>
+  </div>
+
+  <div class="section">
+    <h3>Changes to this policy</h3>
+    <p>If we ever update this policy, we will post the new version at this URL and update the effective date below. We will notify users through an app update if any material changes occur.</p>
+  </div>
+
+  <div class="section">
+    <h3>Contact</h3>
+    <p>Questions about privacy? We're happy to answer. Email us at <a href="mailto:contact@prettyapps.co" style="color: var(--plum);">contact@prettyapps.co</a>.</p>
+  </div>
+
+  <div class="meta">
+    <p>Effective date: June 13, 2026 · Pretty Apps LLC · Tbilisi, Georgia</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Pretty Apps LLC · Tbilisi, Georgia 🇬🇪</p>
+  <a href="/">← Home</a>
+</footer>
+
+</body>
+</html>
